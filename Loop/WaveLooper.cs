@@ -2,16 +2,13 @@
 
 namespace Loop;
 
-public class WaveLooper : AudioLooper<WaveFormat>
+public class WaveLooper : AudioLooper
 {
 	protected override (float[], WaveFormat) Load(string inputPath) 
 	{
 		using var reader = new AudioFileReader(inputPath);
-		// Convert the reader to a SampleProvider for easier manipulation
 		var samples = reader.ToSampleProvider();
-
-		// Load all samples into a buffer
-		var sampleData = new float[(int)(reader.Length / sizeof(float))];
+		float[] sampleData = new float[(int)(reader.Length / sizeof(float))];
 		samples.Read(sampleData, 0, sampleData.Length);
 		return (sampleData, reader.WaveFormat);
 	}

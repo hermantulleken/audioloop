@@ -2,14 +2,7 @@
 
 namespace Loop;
 
-/**
-	A simply quick-and-dirty program to make MP3s and WAVs loopable, following the following rough process:
-	
-	1. Read the input file into a float array
-	2. Crossfade the float array with itself
-	3. Trim the float array so that the beginning and end match up. 
-	4. Write the float array to the output file
-*/
+
 public static class Program
 {
 	private static readonly string UsageMessage = @"
